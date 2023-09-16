@@ -1,0 +1,30 @@
+
+class Solution{
+    static String lookandsay(int n) {
+        //your code here
+        String a = "1";
+        String aa = "11";
+        
+        if(n == 1)return "1";
+        if(n == 2)return "11";
+        String str = "11";
+        
+        for(int i = 3;i<=n;i++){
+            String tsp = "";
+            int c = 1;
+            str +='$';
+            char[] arr = str.toCharArray();
+            for(int j = 1;j<str.length();j++){
+                if(arr[j] != arr[j-1]){
+                    tsp +=c;
+                    tsp +=arr[j-1];
+                    c = 1;
+                }else{
+                    c++;
+                }
+            }
+            str = tsp;
+        }
+        return str;
+    }
+}

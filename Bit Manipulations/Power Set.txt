@@ -1,0 +1,23 @@
+class Solution
+{
+    public List<String> AllPossibleStrings(String s)
+    {
+        List<String>ans = new ArrayList<>();
+        int n = (int)Math.pow(2,s.length());
+        for(int i = 1;i<n;i++){
+            int x = i;
+            int j = 0;
+            String c = "";
+            while(x != 0){
+                if((x&1) != 0){
+                    c = c+s.charAt(j);
+                }
+                j++;
+                x =x >> 1;
+            }
+            ans.add(c);
+        }
+        Collections.sort(ans);
+        return ans;
+    }
+}

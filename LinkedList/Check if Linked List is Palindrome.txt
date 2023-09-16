@@ -1,0 +1,45 @@
+class Solution
+{
+    //Function to check whether the list is palindrome.
+    boolean isPalindrome(Node head) 
+    {
+        Node node = head;
+        Node mid = getMid(node);
+        Node rev = reverse(mid);
+        
+        while(rev != null){
+            if(rev.data != head.data){
+                return false;
+            }
+            rev = rev.next;
+            head = head.next;
+        }
+        return true;
+    }  
+    Node getMid(Node head) 
+    {
+        Node node = head;
+        Node fast = node;
+        Node slow = node;
+        
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        return slow;
+    }
+    Node reverse(Node head) 
+    {
+        Node node = head;
+        Node pre = null;
+        Node nex = null;
+        
+        while(node != null){
+            nex = node.next;
+            node.next = pre;
+            pre = node;
+            node = nex;
+        }
+        return pre;
+    }
+}

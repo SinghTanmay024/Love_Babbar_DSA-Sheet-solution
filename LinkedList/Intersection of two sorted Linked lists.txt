@@ -1,0 +1,32 @@
+class Sol
+{
+   public static Node findIntersection(Node head1, Node head2)
+    {
+        Node n1 = head1;
+        Node n2 = head2;
+        Node head = null;
+        Node cur = null;
+        
+        while(n1 != null && n2 != null){
+            if(n1.data == n2.data){
+                Node t = new Node(n1.data);
+                if(head == null){
+                    head = t;
+                    cur = t;
+                }else{
+                    cur.next = t;
+                    cur = cur.next;
+                }
+                n1 = n1.next;
+                n2 = n2.next;
+            }else{
+                if(n1.data < n2.data){
+                    n1 = n1.next;
+                }else{
+                    n2 = n2.next;
+                }
+            }
+        }
+        return head;
+    }
+}

@@ -1,0 +1,20 @@
+class Compute {
+    
+    public long[] printFirstNegativeInteger(long A[], int N, int K)
+    {
+        long ans[] = new long[N-K+1];
+        ArrayDeque<Long>q = new ArrayDeque<>();
+        for(int i = 0;i<K;i++){
+            if(A[i] < 0){
+                q.add(A[i]);
+            }
+        }
+        ans[0] = q.size() > 0?q.peek():0;
+        int j = 1;
+        for(int i = K;i<N;i++){
+            q.remove(A[i-K]);
+            if(A[i] < 0)q.add(A[i]);
+            ans[j++] = q.size() > 0?q.peek():0;
+        }
+        return ans;
+    }

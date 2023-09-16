@@ -1,0 +1,23 @@
+class Solution{
+    Node divide(int N, Node head){
+       Node node = head;
+       Node dummyE = new Node(-1);
+       Node dummyO = new Node(-1);
+       Node odd = dummyO;
+       Node even = dummyE;
+       
+       while(node != null){
+           if(node.data%2 != 0){
+               odd.next = node;
+               odd = odd.next;
+           }else{
+               even.next = node;
+               even = even.next;
+           }
+           node = node.next;
+       }
+       even.next = dummyO.next;
+       odd.next = null;
+       return dummyE.next;
+    }
+}

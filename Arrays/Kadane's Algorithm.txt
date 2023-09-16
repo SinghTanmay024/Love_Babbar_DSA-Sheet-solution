@@ -1,0 +1,16 @@
+long maxSubarraySum(int arr[], int n){
+        
+        long osum = arr[0];
+        long csum = arr[0];
+        
+        for(int i = 1;i<arr.length;i++){
+            if(csum >= 0){
+                csum +=arr[i];
+            }else{
+                csum = arr[i];
+            }
+            
+            osum = Math.max(csum,osum);
+        }
+        return osum;
+    }

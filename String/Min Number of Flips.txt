@@ -1,0 +1,21 @@
+
+class Solution {
+    public int minFlips(String S) {
+        
+        return Math.min(getFliped(S,'0'),getFliped(S,'1'));
+    }
+    public int getFliped(String S,char exp) {
+        
+        int flip = 0;
+        for(int i = 0;i<S.length();i++){
+            if(S.charAt(i) != exp){
+                flip++;
+            }
+            exp = flip(exp);
+        }
+        return flip;
+    }
+    public char flip(char x) {
+        return (x == '0')?'1':'0';
+    }
+}

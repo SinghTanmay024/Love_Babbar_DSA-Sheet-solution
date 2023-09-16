@@ -1,0 +1,44 @@
+class Solution
+{
+    //Function to find the data of nth node from the end of a linked list.
+    int getNthFromLast(Node head, int n)
+    {
+        if(head == null)return -1;
+        int s = getSize(head);
+        if(n > s){
+            return -1;
+        }
+        Node node = reverse(head);
+        while(n != 1){
+            n--;
+            node = node.next;
+        }
+        return node.data;
+    }
+    int getSize(Node head)
+    {
+    		Node node = head;
+    		int s = 0;
+    		while(node != null){
+    		    s++;
+    		    node = node.next;
+    		}
+    		return s;
+    }
+    Node reverse(Node head)
+    {
+    		Node node = head;
+    		Node nex = null;
+    		Node pre = null;
+    		
+    		while(node != null){
+    		    nex = node.next;
+    		    node.next = pre;
+    		    pre = node;
+    		    node = nex;
+    		}
+    		return pre;
+    }
+}
+
+

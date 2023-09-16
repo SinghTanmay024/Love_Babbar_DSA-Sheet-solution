@@ -1,0 +1,7 @@
+Arrays.sort(arr);
+        long sum = 0;
+        for(long i = 1;i<n;i++){
+            sum += (arr[(int)i]*i);
+            sum = sum%1000000007;
+        }
+        return (int)sum%1000000007;

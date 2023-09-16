@@ -1,0 +1,28 @@
+class Solution
+{
+    String secFrequent(String arr[], int N)
+    {
+        String ans = "";
+        HashMap<String,Integer> map = new HashMap<>();
+        for(String a : arr){
+            map.put(a,map.getOrDefault(a,0)+1);
+        }
+        int mf = 0;
+        String m = "";
+        for(String x : map.keySet()){
+           if(map.get(x) > mf){
+               mf = map.get(x);
+               m = x;
+           }
+        }
+        map.remove(m);
+        mf = 0;
+        for(String x : map.keySet()){
+           if(map.get(x) > mf){
+               mf = map.get(x);
+               ans = x;
+           }
+        }
+        return ans;
+        
+    }

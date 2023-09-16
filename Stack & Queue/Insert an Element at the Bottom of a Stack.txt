@@ -1,0 +1,14 @@
+class Solution {
+    public Stack<Integer> insertAtBottom(Stack<Integer> st, int X) {
+        
+        Stack<Integer>s = new Stack<>();
+        while(st.size() > 0){
+            s.push(st.pop());
+        }
+        s.push(X);
+        while(s.size() > 0){
+            st.push(s.pop());
+        }
+        return st;
+    }
+}

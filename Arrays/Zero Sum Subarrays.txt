@@ -1,0 +1,17 @@
+class Solution{
+    public static long findSubarray(long[] arr ,int n) 
+    {
+        long cnt = 0;
+        HashMap<Long,Integer>map = new HashMap<>();
+        map.put((long)0,1);
+        long sum = 0;
+        for(long i : arr){
+            sum +=i;
+            if(map.containsKey(sum)){
+                cnt +=map.get(sum);
+            }
+            map.put(sum,map.getOrDefault(sum,0)+1);
+        }
+        return cnt;
+    }
+}
